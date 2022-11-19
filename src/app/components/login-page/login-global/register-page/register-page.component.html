@@ -1,0 +1,52 @@
+<form [formGroup]="form" novalidate
+      class="forms"
+      (ngSubmit)="submit()"
+>
+  <h1>Register</h1>
+
+  <div class="input">
+    <label>Name</label>
+    <input type="text"
+            formControlName="userName"
+    >
+  </div>
+  <div class="input">
+    <label>Surname</label>
+    <input type="text"
+            formControlName="userSurName"
+    >
+  </div>
+  <div class="input">
+    <label class="brt">BirtDay</label>
+    <p-calendar [(ngModel)]="userBirtDay" formControlName="userBirtDay" dataType="string"></p-calendar>
+  </div>
+  <div class="input">
+    <label>new Login</label>
+    <input type="email"
+            formControlName="userEmail"
+    >
+  </div>
+
+  <div class="input">
+    <label>Password</label>
+    <input type="password"
+           formControlName="userPassword"
+    >
+  </div>
+
+  <div class="input">
+    <label>Password</label>
+    <input type="password"
+           formControlName="repPassword"
+    >
+  </div>
+  <div class="error" *ngIf="error">Error password incorrect</div>
+  <div class="error" *ngIf="errorPage">Page error this login registered</div>
+  <div class="btn">
+    <button [disabled]="form.invalid">Register</button>
+  </div>
+
+
+</form>
+
+<div><button (click)="g()">ADDD</button></div>

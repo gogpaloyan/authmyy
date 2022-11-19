@@ -1,0 +1,26 @@
+[
+  {
+    "id": 0,
+    "auth": {
+      "userEmail": "admin@mail.ru",
+      "userPassword": "admin"
+    },
+    "data": [
+      {"id": 0,"title": "Learn Angular","completed": false},
+      {"id": 1,"title": "Learn Redux","completed": false},
+      {"id": 2,"title": "Learn React","completed": false}
+    ]
+  },
+  {
+    "id": 1,
+    "auth": {
+      "userEmail": "grigor@mail.ru",
+      "userPassword": "1111"
+    },
+    "data": [
+      {"id": 0,"title": "Learn Angular","completed": false},
+      {"id": 1,"title": "Learn Redux","completed": false},
+      {"id": 2,"title": "Learn React","completed": true}
+    ]
+  }
+]

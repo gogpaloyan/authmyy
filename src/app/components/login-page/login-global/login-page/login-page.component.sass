@@ -1,0 +1,34 @@
+$color: #E17863
+$bgColor: burlywood
+$bginput: #E12020
+$r: 10px
+
+.forms
+  width: 300px
+  background-color: burlywood
+  margin: 10% auto
+  padding: 10px
+  border-radius: $r
+  h1
+    text-align: center
+
+  .input
+    display: flex
+    flex-flow: row wrap
+    justify-content: space-between
+    margin: 10px
+    input
+      background-color: $color
+      border-radius: $r
+      border: 1px solid red
+
+  .error
+    color: red
+  .btn
+    text-align: center
+    button
+      padding: 20px
+      cursor: pointer
+      background-color: $bginput
+      border-radius: $r
+      margin: 10px

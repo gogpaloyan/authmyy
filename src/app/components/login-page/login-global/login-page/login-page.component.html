@@ -1,0 +1,39 @@
+
+
+
+<form [formGroup]="forms" novalidate
+      class="forms"
+      (ngSubmit)="submit()">
+  <h1>Login</h1>
+
+  <div class="input">
+    <label>Email</label>
+    <input type="email"
+           formControlName="userEmail"
+    >
+  </div>
+  <div class="error" *ngIf="
+            forms.controls['userEmail'].invalid &&
+            forms.controls['userEmail'].touched"
+  >Error email incorrect</div>
+  <div class="input">
+    <label>Password</label>
+    <input type="password"
+           placeholder="password"
+           formControlName="userPassword"
+    >
+  </div>
+  <div class="error"
+       *ngIf="forms.controls['userPassword'].invalid &&
+   forms.controls['userPassword'].touched"
+  >Error password incorect </div>
+  <div class="error" *ngIf="error">Incorect username or password</div>
+  <div class="btn">
+    <button
+     [disabled]="forms.invalid"
+    >Submit</button>
+  </div>
+
+</form>
+
+

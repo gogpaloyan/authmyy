@@ -1,0 +1,45 @@
+<p>personcom works!</p>
+{{user.name}}
+
+
+{{user.id}}
+
+<div>
+  <button  (click)="setPay(product.title, product.id)">By this</button>
+</div>
+
+
+
+<div [ngClass]="{productApp: true}">
+  <div [ngClass]="{product: true}">
+
+    <div [ngClass]="{captionimg: true}">
+      <div>Product number N/{{product.id}}</div>
+      <img [alt]="product.title" [src]="product.image">
+      <div [ngClass]="{price: true}"><b>{{product.price | currency:"AMD "}}</b></div>
+    </div>
+    <div [ngClass]="{btn: true}">
+
+    </div>
+
+
+    {{product.description}}
+
+
+    <div [ngClass]="{category: true}">
+      <div >
+        <b> category is{{product.category}}</b>
+      </div>
+
+      <div>
+        <b> Reting * {{product.rating.rate | number: "2.2-4"}}
+        </b>
+        <div><b>count products {{product.rating.count}}</b></div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+
