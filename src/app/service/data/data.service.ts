@@ -10,7 +10,7 @@ export class DataService {
       "id": 0,
       "name": "Admin",
       "surName": "Admin",
-      "birtDay": "12.12.12",
+      "birtDay": "Sat Nov 19 2022 15:36:07 GMT+0400 (Армения, стандартное время)",
       "auth": {
         "userEmail": "admin@mail.ru",
         "userPassword": "admin"
@@ -30,7 +30,7 @@ export class DataService {
       "id": 1,
       "name": "Grigor",
       "surName": "Paloyan",
-      "birtDay": "12.12.12",
+      "birtDay": "Sat Nov 19 2022 15:36:07 GMT+0400 (Армения, стандартное время)",
       "auth": {
         "userEmail": "g@mail.ru",
         "userPassword": "1111"

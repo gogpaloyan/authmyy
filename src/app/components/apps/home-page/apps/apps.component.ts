@@ -14,6 +14,7 @@ export class AppsComponent implements OnInit {
 
 
 
+
   onAdd(text: string){
     if(this.input.length > 0){
       this.input = ""

@@ -6,7 +6,6 @@ import {RegisterPageComponent} from "./components/login-page/login-global/regist
 import {HomePageComponent} from "./components/apps/home-page/home-page.component";
 import {AppsComponent} from "./components/apps/home-page/apps/apps.component";
 import {ProComponent} from "./components/apps/home-page/pro/pro.component";
-import {ModComponent} from "./components/apps/home-page/mod/mod.component";
 import {ProcomComponent} from "./components/apps/home-page/pro/procom/procom.component";
 
 const routes: Routes = [
@@ -18,8 +17,10 @@ const routes: Routes = [
   {path: "home", component: HomePageComponent, children:[
       {path: "", redirectTo: "apps", pathMatch: "full"},
       {path: "apps", component: AppsComponent},
-      {path:"gg/:name/:id", component: ProcomComponent},
-      {path: "pro", component: ProComponent},
+      {path:"gg/:name/:id", loadChildren: () => import("./components/apps/home-page/pro/procom/procom.module")
+          .then(m => m.ProcomModule)},
+      {path: "pro", loadChildren: () => import("./components/apps/home-page/pro/pro-routes/pro.module")
+          .then(m => m.ProModule)},
       {path: "mod", loadChildren: () => import("./components/apps/home-page/mod/mod-routes/mod-routes.module")
           .then(mod => mod.ModRoutesModule)}
     ]}
