@@ -11,17 +11,23 @@ import {DataService} from "../../../../../service/data/data.service";
 export class ProcomComponent implements OnInit {
   user = {id: "", name: ""}
   product: any;
+  btn: boolean = false
 
 
 
   constructor(private route: ActivatedRoute, private products: ProService, private data: DataService) {
   }
   setPay(title: string, id: string){
+    this.btn = true
     return this.data.setPay(title, id)
   }
 
   gg(){
     this.product = this.product[+this.user.id - 1]
+  }
+  removePay(id: string){
+    this.btn = true
+    return this.data.removePay(id)
   }
 
   ngOnInit() {
@@ -34,8 +40,6 @@ export class ProcomComponent implements OnInit {
       id: this.route.snapshot.params['id'],
       name: this.route.snapshot.params['name'],
     }
-
-
   }
 
 

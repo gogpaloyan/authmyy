@@ -2,5 +2,6 @@
 
 <div *ngFor="let pay of myPays">
   {{pay.title}}
+  {{pay.id}}
+  <button (click)="onDelete(pay.id)">X</button>
 </div>
-<button (click)="jj()">jjj</button>

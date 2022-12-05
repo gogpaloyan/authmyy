@@ -4,9 +4,13 @@
 
 {{user.id}}
 
-<div>
+<div *ngIf="!btn">
   <button  (click)="setPay(product.title, product.id)">By this</button>
 </div>
+<div *ngIf="btn">
+  <button  (click)="removePay(product.id)">remove</button>
+</div>
+
 
 
 

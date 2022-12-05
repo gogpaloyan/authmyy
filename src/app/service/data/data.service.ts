@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -65,7 +66,6 @@ export class DataService {
   getData(){
     return this.data
   }
-
   setDataRegister(name:string, surName:string, birtDay: string, login:string, password:string){
   return this.data.push(
     {
@@ -81,19 +81,22 @@ export class DataService {
         {"id": Math.random(),"title": "Learn Angular","completed": false},
         {"id": Math.random(),"title": "Learn Redux","completed": false},
         {"id": Math.random(),"title": "Learn React","completed": true}
-      ]
+      ],
+      "pays":[]
     }
   )
 
   }
-
   getPay(){
     return this.database.pays
+  }
+  onDeletePay(id:number){
+
+    return this.database.pays = this.database.pays.filter((todo:any) => todo.id !== id)
   }
   removePay(id: string){
     return this.database.pays = this.database.pays.filter((i:any) => i.id !== id)
   }
-
   setPay(title:string, id: string){
     return this.database.pays.push({
       id: id,
@@ -101,5 +104,16 @@ export class DataService {
     })
   }
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+
+  getDataTodo(){
+    return this.http.get('https://jsonplaceholder.typicode.com/todos')
+  }
+  setDataTodo(payload: any){
+    return this.http.post('https://jsonplaceholder.typicode.com/todos', payload)
+  }
+  deleteDataTodo(id: number){
+    return this.http.delete('https://jsonplaceholder.typicode.com/todos/' + id)
+  }
 }

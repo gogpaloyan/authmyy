@@ -5,8 +5,7 @@ import {LoginGlobalComponent} from "./components/login-page/login-global/login-g
 import {RegisterPageComponent} from "./components/login-page/login-global/register-page/register-page.component";
 import {HomePageComponent} from "./components/apps/home-page/home-page.component";
 import {AppsComponent} from "./components/apps/home-page/apps/apps.component";
-import {ProComponent} from "./components/apps/home-page/pro/pro.component";
-import {ProcomComponent} from "./components/apps/home-page/pro/procom/procom.component";
+import {ProfileAppsComponent} from "./components/apps/home-page/profile-apps/profile-apps.component";
 
 const routes: Routes = [
   {path: "", component: LoginGlobalComponent, children:[
@@ -17,6 +16,7 @@ const routes: Routes = [
   {path: "home", component: HomePageComponent, children:[
       {path: "", redirectTo: "apps", pathMatch: "full"},
       {path: "apps", component: AppsComponent},
+      {path: "profile", component: ProfileAppsComponent},
       {path:"gg/:name/:id", loadChildren: () => import("./components/apps/home-page/pro/procom/procom.module")
           .then(m => m.ProcomModule)},
       {path: "pro", loadChildren: () => import("./components/apps/home-page/pro/pro-routes/pro.module")

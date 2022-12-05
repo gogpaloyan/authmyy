@@ -1,0 +1,17 @@
+
+<div>
+  <input [(ngModel)]="text" type="text">
+  <button (click)="setDate()">ADD</button>
+</div>
+
+<div class="hh">
+
+
+
+  <div *ngFor="let user of data">
+    {{user.id}}
+    {{user.title}}
+   <input type="checkbox" [(ngModel)]='user.completed'>
+    <button (click)="onDelete(user.id)">X</button>
+  </div>
+</div>
