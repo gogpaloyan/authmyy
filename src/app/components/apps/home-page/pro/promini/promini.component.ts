@@ -14,9 +14,9 @@ export class ProminiComponent implements OnInit {
   btn: boolean = true;
 
 
-  setPay(title:string, id:string){
+  setPay(title:string, id:string, img: string){
     this.btn = false
-    return this.data.setPay(title, id)
+    return this.data.setPay(title, id, img)
   }
   removePay(id:string){
     this.btn = true

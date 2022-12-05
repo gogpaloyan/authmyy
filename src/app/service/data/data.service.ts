@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -21,9 +22,9 @@ export class DataService {
         {"id": 2,"title": "Learn React","completed": false}
       ],
       "pays":[
-        {"id": 465465465, "title": "milk"},
-        {"id": 4465456465149815, "title": "rgb light"},
-        {"id": 954956165415, "title": "bal"}
+        {"id": 5665464, "title": "milk", "image": 'https://img.taste.com.au/JYIB8oVz/taste/2016/11/milk-48958-1.jpg'},
+        {"id": 65465465, "title": "rgb light", "image": "https://content.instructables.com/F8A/2KGW/L2EQEVZZ/F8A2KGWL2EQEVZZ.jpg?auto=webp&frame=1&crop=3:2&width=800&height=1024&fit=bounds&md=d74617c505310b3f29fb94806aef33bd"},
+        {"id": 64654654, "title": "bal", "image": "https://image.intertoys.nl/wcsstore/IntertoysCAS/images/catalog/full/1047095-bfa69d56.jpg"}
       ]
     },
     {
@@ -41,9 +42,9 @@ export class DataService {
         {"id": 2,"title": "Learn React","completed": false}
       ],
       "pays":[
-        {"id": 5665464, "title": "milk"},
-        {"id": 65465465, "title": "rgb light"},
-        {"id": 64654654, "title": "bal"}
+        {"id": 5665464, "title": "milk", "image": 'https://img.taste.com.au/JYIB8oVz/taste/2016/11/milk-48958-1.jpg'},
+        {"id": 65465465, "title": "rgb light", "image": "https://content.instructables.com/F8A/2KGW/L2EQEVZZ/F8A2KGWL2EQEVZZ.jpg?auto=webp&frame=1&crop=3:2&width=800&height=1024&fit=bounds&md=d74617c505310b3f29fb94806aef33bd"},
+        {"id": 64654654, "title": "bal", "image": "https://image.intertoys.nl/wcsstore/IntertoysCAS/images/catalog/full/1047095-bfa69d56.jpg"}
       ]
     }
   ]
@@ -65,7 +66,6 @@ export class DataService {
   getData(){
     return this.data
   }
-
   setDataRegister(name:string, surName:string, birtDay: string, login:string, password:string){
   return this.data.push(
     {
@@ -81,25 +81,41 @@ export class DataService {
         {"id": Math.random(),"title": "Learn Angular","completed": false},
         {"id": Math.random(),"title": "Learn Redux","completed": false},
         {"id": Math.random(),"title": "Learn React","completed": true}
-      ]
+      ],
+      "pays":[]
     }
   )
 
   }
-
   getPay(){
     return this.database.pays
+  }
+  onDeletePay(id:number){
+
+    return this.database.pays = this.database.pays.filter((todo:any) => todo.id !== id)
   }
   removePay(id: string){
     return this.database.pays = this.database.pays.filter((i:any) => i.id !== id)
   }
-
-  setPay(title:string, id: string){
+  setPay(title:string, id: string, img:string){
     return this.database.pays.push({
       id: id,
-      title: title
+      title: title,
+      image: img
+
     })
   }
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+
+  getDataTodo(){
+    return this.http.get('https://jsonplaceholder.typicode.com/todos')
+  }
+  setDataTodo(payload: any){
+    return this.http.post('https://jsonplaceholder.typicode.com/todos', payload)
+  }
+  deleteDataTodo(id: number){
+    return this.http.delete('https://jsonplaceholder.typicode.com/todos/' + id)
+  }
 }

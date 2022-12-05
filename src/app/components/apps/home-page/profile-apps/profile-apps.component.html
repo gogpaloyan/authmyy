@@ -1,0 +1,14 @@
+
+<div class="flex justify-center mt-8">
+  <input class="bg-bgColor rounded-2xl" placeholder="add your posts" [(ngModel)]="text" type="text">
+  <button class="bg-bgColor rounded-2xl ml-4 w-[60px]" (click)="setDate()">ADD</button>
+</div>
+
+<div class="mt-4">
+  <div *ngFor="let user of data">
+    {{user.id}}
+    {{user.title}}
+   <input type="checkbox" [(ngModel)]='user.completed'>
+    <button class="bg-bgColor w-[90px] p-1 rounded-2xl" (click)="onDelete(user.id)">delete</button>
+  </div>
+</div>

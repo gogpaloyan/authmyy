@@ -1,45 +1,36 @@
-<p>personcom works!</p>
-{{user.name}}
-
-
-{{user.id}}
-
 <div>
-  <button  (click)="setPay(product.title, product.id)">By this</button>
-</div>
-
-
-
-<div [ngClass]="{productApp: true}">
-  <div [ngClass]="{product: true}">
-
-    <div [ngClass]="{captionimg: true}">
-      <div>Product number N/{{product.id}}</div>
-      <img [alt]="product.title" [src]="product.image">
-      <div [ngClass]="{price: true}"><b>{{product.price | currency:"AMD "}}</b></div>
+  <div class="bg-bgColor mt-8 text-center  rounded-2xl m-3">
+    {{user.name}}
+    {{user.id}}
+  </div>
+  <div class="bg-myColor w-1/2 text-center m-auto rounded-2xl">
+    <div *ngIf="!btn">
+      <button (click)="setPay(product.title, product.id, product.image)">By this</button>
     </div>
-    <div [ngClass]="{btn: true}">
-
+    <div *ngIf="btn">
+      <button (click)="removePay(product.id)">remove</button>
     </div>
-
-
-    {{product.description}}
-
-
-    <div [ngClass]="{category: true}">
-      <div >
-        <b> category is{{product.category}}</b>
+  </div>
+  <div [ngClass]="{productApp: true}">
+    <div [ngClass]="{product: true}">
+      <div [ngClass]="{captionimg: true}">
+        <div>Product number N/{{product.id}}</div>
+        <img class="w-1/2 m-auto" [alt]="product.title" [src]="product.image">
+        <div class="text-center m-3 p-3 bg-bgColor rounded-2xl" [ngClass]="{price: true}">
+          <b>{{product.price | currency:"AMD "}}</b></div>
       </div>
-
-      <div>
-        <b> Reting * {{product.rating.rate | number: "2.2-4"}}
-        </b>
-        <div><b>count products {{product.rating.count}}</b></div>
+      <div class="text-center bg-amber-100 rounded-2xl">{{product.description}}</div>
+      <div class="text-center" [ngClass]="{category: true}">
+        <div>
+          <b> category is{{product.category}}</b>
+        </div>
+        <div>
+          <b> Reting * {{product.rating.rate | number: "2.2-4"}}
+          </b>
+          <div><b>count products is {{product.rating.count}}</b></div>
+        </div>
       </div>
-
-
     </div>
   </div>
 </div>
-
 

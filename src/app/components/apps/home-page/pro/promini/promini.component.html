@@ -1,26 +1,27 @@
 <div [ngClass]="{productApp: true}">
   <div [ngClass]="{product: true}">
 
-    <div [ngClass]="{captionimg: true}">
+    <div class="m-auto" [ngClass]="{captionimg: true}">
       <div>Product number N/{{product.id}}</div>
-      <div ><img    (click)="getRoute(product.id, 'product')"
-                    [alt]="product.title" [src]="product.image"></div>
+      <div>
+        <img class="m-auto" (click)="getRoute(product.id, 'product')"
+             [alt]="product.title" [src]="product.image"></div>
       <div [ngClass]="{price: true}"><b>{{product.price | currency:"AMD "}}</b></div>
     </div>
-    <div [ngClass]="{btn: true}">
-      <button (click)="show = !show">{{show ? "Less description " : "Show description"}} </button>
+    <div class="m-auto" [ngClass]="{btn: true}">
+      <button  (click)="show = !show">{{show ? "Less description " : "Show description"}} </button>
     </div>
     <div *ngIf="show"
          [ngClass]="{discription: true}">
       {{product.description}}
     </div>
 
-    <div [ngClass]="{category: true}">
+    <div class="m-auto" [ngClass]="{category: true}">
       <div>
         <b> category is{{product.category}}</b>
       </div>
 
-      <div>
+      <div class="m-auto">
         <b> Reting * {{product.rating.rate | number: "2.2-4"}}
         </b>
         <div><b>count products {{product.rating.count}}</b></div>
@@ -30,12 +31,14 @@
     </div>
   </div>
 
-</div>
 
-<div *ngIf="btn" class="btn">
-<button (click)="setPay(product.title, product.id)">Add pay</button>
-</div>
+  <div >
+    <div *ngIf="btn" class="btn">
+      <button (click)="setPay(product.title, product.id, product.image)">Add pay</button>
+    </div>
 
-<div *ngIf="!btn" class="btn">
-<button (click)="removePay(product.id)">remove pay</button>
+    <div *ngIf="!btn" class="btn">
+      <button (click)="removePay(product.id)">remove pay</button>
+    </div>
+  </div>
 </div>

@@ -6,12 +6,13 @@ import {DataService} from "../../../../service/data/data.service";
   templateUrl: './mod.component.html',
   styleUrls: ['./mod.component.sass']
 })
+
+
 export class ModComponent implements OnInit {
   myPays: any;
 
-  jj(){
-
-    this.myPays = this.pay.getPay()
+  onDelete(id:number){
+    return this.pay.onDeletePay(id)
   }
 
   constructor(private pay: DataService) { }
