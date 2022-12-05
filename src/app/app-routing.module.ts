@@ -6,6 +6,7 @@ import {RegisterPageComponent} from "./components/login-page/login-global/regist
 import {HomePageComponent} from "./components/apps/home-page/home-page.component";
 import {AppsComponent} from "./components/apps/home-page/apps/apps.component";
 import {ProfileAppsComponent} from "./components/apps/home-page/profile-apps/profile-apps.component";
+import {BasketComponent} from "./components/apps/home-page/basket/basket.component";
 
 const routes: Routes = [
   {path: "", component: LoginGlobalComponent, children:[
@@ -21,8 +22,7 @@ const routes: Routes = [
           .then(m => m.ProcomModule)},
       {path: "pro", loadChildren: () => import("./components/apps/home-page/pro/pro-routes/pro.module")
           .then(m => m.ProModule)},
-      {path: "mod", loadChildren: () => import("./components/apps/home-page/mod/mod-routes/mod-routes.module")
-          .then(mod => mod.ModRoutesModule)}
+      {path: "basket", component: BasketComponent}
     ]}
 ];
 

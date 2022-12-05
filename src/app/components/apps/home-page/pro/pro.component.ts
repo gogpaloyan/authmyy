@@ -9,9 +9,6 @@ import {ProService} from "../../../../service/pro/pro.service";
 export class ProComponent implements OnInit {
   products: any = []
   search: string = ""
-
-
-
   constructor(private productserviceapp: ProService) { }
 
   ngOnInit() {

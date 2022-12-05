@@ -16,12 +16,13 @@ import { HomePageComponent } from './components/apps/home-page/home-page.compone
 import { NavigationPageLoginComponent } from './components/login-page/navigation-page-login/navigation-page-login.component';
 import { LoginGlobalComponent } from './components/login-page/login-global/login-global.component';
 import { AppsComponent } from './components/apps/home-page/apps/apps.component';
-import { ModComponent } from './components/apps/home-page/mod/mod.component';
 import { ProComponent } from './components/apps/home-page/pro/pro.component';
 import { NavComponent } from './components/apps/home-page/nav/nav.component';
 import { ProcomComponent } from './components/apps/home-page/pro/procom/procom.component';
 import { ProminiComponent } from './components/apps/home-page/pro/promini/promini.component';
 import { ProfileAppsComponent } from './components/apps/home-page/profile-apps/profile-apps.component';
+import {ProService} from "./service/pro/pro.service";
+import { BasketComponent } from './components/apps/home-page/basket/basket.component';
 
 @NgModule({
   declarations: [
@@ -32,12 +33,12 @@ import { ProfileAppsComponent } from './components/apps/home-page/profile-apps/p
     NavigationPageLoginComponent,
     LoginGlobalComponent,
     AppsComponent,
-    ModComponent,
     ProComponent,
     NavComponent,
     ProcomComponent,
     ProminiComponent,
     ProfileAppsComponent,
+    BasketComponent,
   ],
     imports: [
         BrowserModule,
@@ -49,7 +50,7 @@ import { ProfileAppsComponent } from './components/apps/home-page/profile-apps/p
         CalendarModule,
         NgxsModule.forRoot([AppState])
     ],
-  providers: [DataService],
+  providers: [DataService, ProService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
