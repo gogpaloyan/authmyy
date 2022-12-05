@@ -6,7 +6,9 @@
       <div>
         <img class="m-auto" (click)="getRoute(product.id, 'product')"
              [alt]="product.title" [src]="product.image"></div>
-      <div [ngClass]="{price: true}"><b>{{product.price | currency:"AMD "}}</b></div>
+      <div class="text-center" [ngClass]="{price: true}">
+        <span class="font-bold">
+          {{product.price|currency}}</span></div>
     </div>
     <div class="m-auto" [ngClass]="{btn: true}">
       <button  (click)="show = !show">{{show ? "Less description " : "Show description"}} </button>
